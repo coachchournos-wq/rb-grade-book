@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useGradingStore } from "@/hooks/use-grading-store";
+import { SyncBadge } from "@/components/sync-badge";
 import { CATEGORIES, CategoryKey, Score } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { ScorePicker } from "@/components/score-picker";
@@ -104,6 +105,7 @@ export default function GradeEntryPage() {
 
   return (
     <div className="space-y-6">
+      <SyncBadge status={store.syncStatus} onRefresh={store.refresh} />
       <Card>
         <CardHeader>
           <CardTitle>Grade a Play</CardTitle>
