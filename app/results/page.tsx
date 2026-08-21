@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useGradingStore } from "@/hooks/use-grading-store";
+import { SyncBadge } from "@/components/sync-badge";
 import { CATEGORIES, CategoryKey } from "@/lib/types";
 import {
   buildPlayerStats,
@@ -193,6 +194,7 @@ export default function ResultsPage() {
 
   return (
     <div className="space-y-6">
+      <SyncBadge status={store.syncStatus} onRefresh={store.refresh} />
       {/* Filters */}
       <Card>
         <CardContent className="flex flex-col gap-4 py-4 sm:flex-row sm:items-end">
