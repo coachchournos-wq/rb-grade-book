@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useGradingStore } from "@/hooks/use-grading-store";
+import { SyncBadge } from "@/components/sync-badge";
 import { GradingData } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -131,6 +132,7 @@ export default function SetupPage() {
 
   return (
     <div className="space-y-6">
+      <SyncBadge status={store.syncStatus} onRefresh={store.refresh} />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader>
@@ -353,7 +355,8 @@ export default function SetupPage() {
             }}
           />
           <p className="self-center text-xs text-muted-foreground">
-            Data lives in this browser. Download a backup to move it to another device or share it.
+            Data now syncs to the shared team database automatically. Backups are still handy for
+            season archives.
           </p>
         </CardContent>
       </Card>
